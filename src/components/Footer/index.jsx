@@ -32,7 +32,7 @@ const Footer = () => {
           </nav>
         </Item>
         <Item>
-          <h3>Our Services</h3>
+          <h3>Nossos serviços</h3>
           <ul>
             <li>
               <span>Comprar</span>
@@ -46,7 +46,7 @@ const Footer = () => {
           </ul>
         </Item>
         <Item>
-          <h3>Our Services</h3>
+          <h3>Nossos serviços</h3>
           <ul>
             <li>
               <span>Comprar</span>
@@ -60,7 +60,7 @@ const Footer = () => {
           </ul>
         </Item>
         <Item>
-          <h3>Our Services</h3>
+          <h3>Nossos serviços</h3>
           <ul>
             <li>
               <span>Comprar</span>
@@ -75,7 +75,7 @@ const Footer = () => {
         </Item>
       </Container>
       <Copy>
-        <p>© Copyright 2022 - Workside Tecnologia All Rights Reserved.</p>
+        <p>© Copyright 2026 - Cesar Tecnologia All Rights Reserved.</p>
         <ul>
           <li>
             <span>Termos de Uso</span>

@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <Container>
       <Text>
-        <h2>Discover the beauty of your next flat</h2>
+        <h2>Encontre a propriedade do seus sonhos.</h2>
         <p>
           Centenas de pessoas tem a chance de conseguir adquirir sua casa
           própria
