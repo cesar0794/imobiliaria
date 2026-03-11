@@ -68,23 +68,4 @@ export const ProfileFormContact = styled.div`
     display: flex;
     flex-direction: column;
   }
-  textarea {
-    width: 100%;
-    height: 100px;
-    resize: none;
-  }
-  button {
-    width: 100%;
-    cursor: pointer;
-    display: inline-block;
-    text-align: center;
-    background-color: var(--blue);
-    line-height: 24px;
-    border: 0;
-    color: var(--white);
-    font-size: 0.875rem;
-    font-weight: 600;
-    transition: 0, 3s;
-    padding: 12px 20px;
-  }
 `;
