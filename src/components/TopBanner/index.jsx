@@ -1,13 +1,12 @@
+import { urlApi } from "../../services/Api";
 import { Container, Text } from "./styles";
-const TopBanner = () => {
+const TopBanner = ({ tipo, descricao, thumb }) => {
+  const imgUrl = `${urlApi}/uploads/${thumb}`;
   return (
-    <Container>
+    <Container style={{ backgroundImage: `url(${imgUrl})` }}>
       <Text>
-        <h2>Apartamentos</h2>
-        <p>
-          Milhares de pessoas tem seus apartamentos a venda. Não perca a chance
-          de adquirir sua casa própria hoje.
-        </p>
+        <h2>{tipo}</h2>
+        <p>{descricao}</p>
       </Text>
     </Container>
   );

@@ -2,29 +2,27 @@ import React from "react"; // <-- Corrigido aqui (só o React)
 import { FaArrowRight, FaMapMarkerAlt } from "react-icons/fa";
 import { Description, Container, Img, Itens } from "./styles";
 import { Link } from "react-router-dom";
+import { urlApi } from "../../services/Api";
 
-const Card = () => {
+const Card = ({ thumb, tipo, endereco, valor, slug }) => {
   return (
     <Container>
       <Img>
-        <img
-          src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-          alt=""
-        />
+        <img src={`${urlApi}/uploads/${thumb}`} alt="" />
       </Img>
       <Description>
-        <h4>Apartamento</h4>
+        <h4>{tipo}</h4>
 
         <Itens>
           <span>
             <FaMapMarkerAlt />
-            Vila Buarque, São Paulo
+            {endereco}
           </span>
 
-          <span>R$2.000/mês</span>
+          <span>R${valor}/mês</span>
         </Itens>
         <span>
-          <Link to="/imovel">
+          <Link to={`/imovel/${slug}`}>
             Detalhes <FaArrowRight />
           </Link>
         </span>

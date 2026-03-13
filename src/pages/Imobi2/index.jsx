@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Input from "../../components/Input";
 import {
   Container,
@@ -14,26 +14,50 @@ import {
 import TopBanner from "../../components/TopBanner";
 import TextArea from "../../components/TextArea";
 import Button from "../../components/Button";
+import Api, { urlApi } from "../../services/Api";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const Imobi2 = () => {
+  const { slug } = useParams();
+  const [dataimobi, setDataImobi] = useState([]);
+
+  useEffect(() => {
+    Api.get(`/listimobi/${slug}`)
+      .then((response) => {
+        setDataImobi(response.data);
+      })
+      .catch(() => {
+        console.log("Erro: erro ao listar imovel");
+      });
+  });
+
+  const {
+    tipo,
+    cidade,
+    endereco,
+    descricao,
+    thumb,
+    name,
+    email,
+    userId,
+    telefone,
+  } = dataimobi;
+
   return (
     <Fragment>
-      <TopBanner />
+      <TopBanner tipo={tipo} descricao={descricao} thumb={thumb} />
+
       <Container>
         <Left>
           <Thumb>
-            <img
-              src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-              alt=""
-            />
+            <img src={`${urlApi}/uploads/${thumb}`} alt="" />
           </Thumb>
 
           <Description>
-            <h2>Apartamento / Alugar</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <h2>{tipo}</h2>
+            <h5>Cidade: {cidade}</h5>
+            <h5>Endereço: {endereco}</h5>
+            <p>{descricao}</p>
           </Description>
         </Left>
 
@@ -46,13 +70,13 @@ const Imobi2 = () => {
               />
             </ProfileImg>
 
-            <h3>Jhon Doe</h3>
+            <h3>{name}</h3>
             <p>Descrição do usuário</p>
           </Profile>
           <ProfileContact>
             <h3>Informações para contato:</h3>
-            <p>(11) 1111-1111</p>
-            <p>teste@teste.com</p>
+            <p>{telefone}</p>
+            <p>{email}</p>
           </ProfileContact>
           <ProfileFormContact>
             <h3>Contate o anunciante</h3>

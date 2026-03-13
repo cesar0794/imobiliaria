@@ -1,4 +1,3 @@
-import React, { Fragment } from "react";
 import LogoImg from "../../assets/logo.png";
 import { Container, Menu, Logo } from "./styles";
 import { Link } from "react-router-dom";
